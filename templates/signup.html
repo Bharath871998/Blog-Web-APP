@@ -1,33 +1,27 @@
 {% extends "index.html" %}
-
 {% block title %}Sign-up{% endblock title %}
-
 {% block body %}
 <section class="container">
     <div class="row justify-content-around mt-4 ">
         <div class="col-sm-3">
             <form action="signup" method="post" class="text-white bg-dark p-3 rounded shadow" autocomplete="off">
                 {% csrf_token %}
-    
                 <input class="form-control" type="text" name="first_name" placeholder="First Name"><br>
                 <input class="form-control" type="text" name="last_name" placeholder="Last Name"><br>
                 <input class="form-control" type="text" name="username" placeholder="UserName"><br>
                 <input class="form-control" type="email" name="email" placeholder="email"><br>
                 <input class="form-control" type="password" name="password1" placeholder="Password"><br>
                 <input class="form-control" type="password" name="password2" placeholder="Confirm Password"><br>
-                <input  type="Submit" class="btn btn-success">
-    
+                <input type="Submit" class="btn btn-success">
             </form>
         </div>
     </div>
-    
-    
     <center>
-    <div class="row justify-content-around mt-3">
-        {% for message in messages %}
-        <h3 class="text-danger"> {{message}} </h3>
-        {% endfor %}
-    </div>
+        <div class="row justify-content-around mt-3">
+            {% for message in messages %}
+            <h3 class="text-danger"> {{message}} </h3>
+            {% endfor %}
+        </div>
     </center>
-    </section>
+</section>
 {% endblock body %}

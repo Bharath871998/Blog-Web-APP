@@ -1,22 +1,16 @@
 {% extends "index.html" %}
-
 {% block title %}Home{% endblock title %}
-
 {% block body %}
 {% load static %}
-<!-- <a href="post_list"  class="btn btn-primary">My-Post</a> -->
-
 <div class="jumbotron justify-content-around text-center bg-success text-white">
     <h1 class="fst-italic">Hi there, Welcome to the Blog Page</h1>
     <h4 class="fst-italic">"Writing is the painting of the voice"</h4>
     <img src="{% static 'images/Blog_pic.png' %}" style="height: 200px; width:1000px" alt="blog Logo">
 </div>
-
-
 {% for p in posts %}
-<div class="container mt-1 " >
+<div class="container mt-1 ">
     {% if user.is_authenticated %}
-    <div class="row justify-content-around " >
+    <div class="row justify-content-around ">
         <div class="card text-white bg-dark col-sm-12 mt-4">
             <div class="card-header">
                 <h6>Author:- {{p.author}}</h6>
@@ -24,7 +18,8 @@
             <div class="card-body">
                 <h6 class="card-title">{{ p.title }}</h6>
                 <p class="card-text float-start">{{ p.body | truncatechars:60 }}</p>
-                <a href="{% url 'detail_post' p.id %}" class="btn btn-primary btn-sm float-end fas fa-book-reader"> Read more</a>
+                <a href="{% url 'detail_post' p.id %}" class="btn btn-primary btn-sm float-end fas fa-book-reader"> Read
+                    more</a>
             </div>
             <div class="card-footer">
                 <small class="text-white float-start">Created on {{p.created}}</small>
@@ -32,10 +27,7 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
-    
     {% else %}
-
     <div class="row justify-content-around ">
         <div class="card text-white bg-dark col-sm-10 mt-4">
             <div class="card-header">
@@ -52,10 +44,7 @@
             </div>
         </div>
     </div>
-
     {% endif %}
 </div>
 {% endfor %}
-
-
 {% endblock body %}
